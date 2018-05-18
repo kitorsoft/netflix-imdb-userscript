@@ -19,9 +19,7 @@ window.onload = function()
 	var netflix =
 	{
 		APIKey:"XXXXXXXX", // get your own API key
-		lastUrl:null,
 		cache:{},
-		lastVisible:false,
 
 		init:function()
 		{
@@ -147,11 +145,6 @@ window.onload = function()
 			var img = document.createElement('img');
 			img.src = imdb_image;
 			
-			var a_debug = document.createElement('a');
-			a_debug.href = netflix.lastUrl;
-			a_debug.innerHTML = 'debug';
-			a_debug.target = '_blank';
-			
 			var span = document.createElement('span');
 			if(!item.imdbRating || isNaN(parseInt(item.imdbRating)))
 			{
@@ -170,7 +163,6 @@ window.onload = function()
 			
 			div.appendChild(a);
 			div.appendChild(span);
-			//div.appendChild(a_debug);
 					
 			var x = $(selector);
 			var y = x.next();
@@ -205,7 +197,6 @@ window.onload = function()
 				{
 					//console.log("netflix imdb got title");
 					//console.log(data);
-					netflix.lastUrl = this.url;
 
 					var dataYear = parseInt(data.Year.replace("-", ""));
 					//console.log("Year: " + dataYear);
